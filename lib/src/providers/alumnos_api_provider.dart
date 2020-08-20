@@ -9,7 +9,7 @@ class AlumnosApiProvider {
   List data;
 
   Future<List<Alumnos>> getAllAlumnos() async {
-    var url = "http://148.202.89.11/encuesta/api/materias.php?codigo=219737144";
+    var url = "http://148.202.89.11/encuesta/api/materias.php?codigo=219284328";
     Response response = await http.get(url);
 
     var alumnos = List<Alumnos>();
