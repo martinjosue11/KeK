@@ -1,3 +1,4 @@
+import 'package:materias_dos/src/pages/datos_materias_page.dart';
 import 'package:materias_dos/src/providers/db_providers.dart';
 import 'package:materias_dos/src/providers/alumnos_api_provider.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final String _urlcode = '';
     return Scaffold(
       appBar: AppBar(
         title: Text('Materias'),
@@ -99,8 +101,13 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 20.0),
                 ),
                 title: Text(
-                    "Datos: ${snapshot.data[index].nombre_profesor}.${snapshot.data[index].nombre_materia} "),
+                    "Profesor: ${snapshot.data[index].nombre_profesor}\nMateria: ${snapshot.data[index].nombre_materia} "),
                 subtitle: Text('CRN MATERIA: ${snapshot.data[index].crn}'),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DatosMateriasPage(
+                          snapshot.data[index].crn.toString())));
+                },
               );
             },
           );
