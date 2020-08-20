@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:materias_dos/src/pages/home_page.dart';
 import 'package:materias_dos/src/pages/ingresar_codigo.dart';
 
 void main() => runApp(MyApp());

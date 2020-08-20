@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
       thing = 1;
       _loadFromApi();
     }
-    final String _urlcode = '';
+    //final String _urlcode = '';
     return Scaffold(
       appBar: AppBar(
         title: Text('Materias'),

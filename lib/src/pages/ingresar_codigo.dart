@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../providers/alumnos_api_provider.dart';
 import 'home_page.dart';
-import 'home_page.dart';
-import 'home_page.dart';
 
 class IngresarCodigoPage extends StatefulWidget {
   @override
