@@ -6,11 +6,14 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class AlumnosApiProvider {
+  final String urlCodes;
+  AlumnosApiProvider(this.urlCodes);
   List data;
 
   Future<List<Alumnos>> getAllAlumnos() async {
-    var url = "http://148.202.89.11/encuesta/api/materias.php?codigo=219284328";
-    Response response = await http.get(url);
+    var url = "http://148.202.89.11/encuesta/api/materias.php?codigo=";
+    var urlcomplete = url + urlCodes;
+    Response response = await http.get(urlcomplete);
 
     var alumnos = List<Alumnos>();
 

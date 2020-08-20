@@ -4,7 +4,9 @@ import 'package:materias_dos/src/providers/alumnos_api_provider.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
+  //const HomePage({Key key}) : super(key: key);
+  final String urlCodes;
+  HomePage(this.urlCodes);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -12,9 +14,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var isLoading = false;
-
+  int thing = 0;
   @override
   Widget build(BuildContext context) {
+    if (thing == 0) {
+      _deleteData();
+      thing = 1;
+      _loadFromApi();
+    }
     final String _urlcode = '';
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +61,7 @@ class _HomePageState extends State<HomePage> {
       isLoading = true;
     });
 
-    var apiProvider = AlumnosApiProvider();
+    var apiProvider = AlumnosApiProvider(widget.urlCodes);
     await apiProvider.getAllAlumnos();
 
     await Future.delayed(const Duration(seconds: 2));
