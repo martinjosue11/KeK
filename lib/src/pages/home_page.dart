@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final String _urlcode = '';
     return Scaffold(
       appBar: AppBar(
         title: Text('Materias'),
@@ -103,10 +104,9 @@ class _HomePageState extends State<HomePage> {
                     "Profesor: ${snapshot.data[index].nombre_profesor}\nMateria: ${snapshot.data[index].nombre_materia} "),
                 subtitle: Text('CRN MATERIA: ${snapshot.data[index].crn}'),
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DatosMateriasPage()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DatosMateriasPage(
+                          snapshot.data[index].crn.toString())));
                 },
               );
             },

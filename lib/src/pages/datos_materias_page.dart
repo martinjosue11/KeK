@@ -5,16 +5,18 @@ import 'dart:convert';
 import 'package:materias_dos/src/models/datos_materias.dart';
 
 class DatosMateriasPage extends StatefulWidget {
+  final String urlCode;
+  const DatosMateriasPage(this.urlCode);
   @override
   _DatosMateriasPageState createState() => _DatosMateriasPageState();
 }
 
 class _DatosMateriasPageState extends State<DatosMateriasPage> {
   List<MateriaDatos> _datosM = List<MateriaDatos>();
-
   Future<List<MateriaDatos>> fetchMateria() async {
-    var url = 'http://148.202.89.11/api_spasa/info_materia/108304';
-    var response = await http.get(url);
+    String url = "http://148.202.89.11/api_spasa/info_materia/";
+    String completeUrl = url + widget.urlCode;
+    var response = await http.get(completeUrl);
 
     var datosM = List<MateriaDatos>();
 
